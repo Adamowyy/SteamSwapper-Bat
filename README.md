@@ -4,14 +4,14 @@ A simple script that allows you to quickly switch between your Steam accounts.
 
 There's no need to install or configure any third-party applications!
 
-## SteamSwapper (Multiple account SteamSwapper) - Instructions:
+### SteamSwapper (Multiple account SteamSwapper) - Instructions:
 
 1. **Edit** "SteamSwapper.bat" with a **notepad** and add your username.
 2. **Run** the script.
 3. **Choose** between your added accounts.
 4. **Enjoy!**
 
-## YourUsernameSwapper (One account SteamSwapper) - Instructions:
+### YourUsernameSwapper (One account SteamSwapper) - Instructions:
 
 1. **Replace** filename "YourUsername".bat with your second account username.
 2. **Run** the script.
