@@ -1,15 +1,22 @@
 ### SteamSwapper-Bat - a safe way to swap accounts faster!
 
-A simple script that allows you to quickly switch between an **infinite number** of Steam accounts.
+A simple script that allows you to quickly switch between your Steam accounts.
 
 There's no need to install or configure any third-party applications!
 
-## Instructions:
+## SteamSwapper (Multiple account SteamSwapper) - Instructions:
 
-1. **Replace** filename "YourUsername".bat with your second account username!
+1. **Edit** "SteamSwapper.bat" with a **notepad** and add your username.
+2. **Run** the script.
+3. **Choose** between your added accounts.
+4. **Enjoy!**
+
+## YourUsernameSwapper (One account SteamSwapper) - Instructions:
+
+1. **Replace** filename "YourUsername".bat with your second account username.
 2. **Run** the script.
 3. **Enjoy!** Your Steam will be switched to your "filename" account.
-4. Copy the file YourUsername.bat, change its name to your main account username, for example, and you're done!
+4. **Copy** the file YourUsername.bat, change its name to your main account username, for example, and you're done!
 
 - Additionally, if you wish to run a game, you can remove **"rem"** from **start "gamepath/game.exe"** and add your game path, e.g. if you have an account with one game.
 - Ugly .bat ICON or "username" on your desktop? No problem! Just hide YourUsername.bat somewhere, create a shortcut and you can change the name and icon as you like!
