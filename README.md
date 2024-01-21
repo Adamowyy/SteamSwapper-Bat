@@ -1,8 +1,8 @@
 ### SteamSwapper.bat - a safe way to swap accounts faster!
 
-A simple script that allows you to quickly swap between **TWO** Steam accounts.
+A simple script that allows you to quickly switch between an **infinite number** of Steam accounts.
 
-You don't need to install any third party apps!
+There's no need to install or configure any third-party applications!
 
 ## Instructions:
 
