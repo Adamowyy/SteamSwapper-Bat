@@ -11,7 +11,7 @@ There's no need to install or configure any third-party applications!
 3. **Enjoy!** Your Steam will be switched to your "filename" account.
 4. Copy the file YourUsername.bat, change its name to your main account username, for example, and you're done!
 
-- Additionally, if you wish to run a game, you can remove **"rem"** from **"start gamegath/game.exe"** and add your game path, e.g. if you have an account with one game.
+- Additionally, if you wish to run a game, you can remove **"rem"** from **start "gamepath/game.exe"** and add your game path, e.g. if you have an account with one game.
 - Ugly .bat ICON or "username" on your desktop? No problem! Just hide YourUsername.bat somewhere, create a shortcut and you can change the name and icon as you like!
 
 #### Security Assurance:
