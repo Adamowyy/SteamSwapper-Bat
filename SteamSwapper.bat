@@ -10,7 +10,7 @@ for /f "tokens=3" %%i in ('reg query "HKCU\Software\Valve\Steam" /v AutoLoginUse
     echo -----
     echo Choose your account:
 
-rem -!- Name of your accounts (whatever you want) -!-
+	rem -!- NAME OF YOUR ACCOUNTS DISPLAYED IN THE WINDOW (put here whatever you want) -!-
     echo 1. "YourAccount1"
     echo 2. "YourAccount2"
 	rem echo 3. "PutYour3rdUsername"
@@ -19,7 +19,7 @@ rem -!- Name of your accounts (whatever you want) -!-
     echo -----
     set /P "Select=Enter the number:"
 
- 	rem -!- Put your steam username below -!- 
+ 	rem -!- PUT YOUR STEAM USERNAME BELOW -!- 
     if "!Select!"=="1" ( set "login=YourUsername1" )
     if "!Select!"=="2" ( set "login=YourUsername1" )
 	rem if "!Select!"=="3" ( set "login=PutYour3rdUsername ")
@@ -48,25 +48,23 @@ rem -!- Name of your accounts (whatever you want) -!-
         		taskkill.exe /F /IM steam.exe
     		)
 
-		rem --- Set the username in AutoLogin so that Steam recognises your saved account and open steam ---
-		reg add "HKCU\Software\Valve\Steam" /v AutoLoginUser /t REG_SZ /d !login! /f
-		reg add "HKCU\Software\Valve\Steam" /v RememberPassword /t REG_DWORD /d 1 /f
-		cls
-		echo Shh... Don't look. I will start Steam for you. Just wait..
-		timeout /t 3 /nobreak  >nul 2>&1
-		start steam://open/main
+			rem --- Set the username in AutoLogin so that Steam recognises your saved account and open steam ---
+			reg add "HKCU\Software\Valve\Steam" /v AutoLoginUser /t REG_SZ /d !login! /f
+			reg add "HKCU\Software\Valve\Steam" /v RememberPassword /t REG_DWORD /d 1 /f
+			cls
+			echo Shh... Don't look. I will start Steam for you. Just wait..
+			timeout /t 3 /nobreak  >nul 2>&1
+			start steam://open/main
 
-rem (If you wish, you can delete from here..)
-		rem --- This code will minimise the Steam window to the system tray when opened (If you wish, you can delete this)
-        timeout /t 10 /nobreak  >nul 2>&1
-        tasklist /FI "IMAGENAME eq steamwebhelper" 2>NUL | find /I /N "steamwebhelper">NUL
-        if "%ERRORLEVEL%"=="0" (
-            powershell -command "(Get-Process -Name 'steamwebhelper').MainWindowHandle | ForEach-Object { Add-Type -MemberDefinition '[DllImport(\"user32.dll\")] public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);' -Name Win32 -Namespace Utils -PassThru | Out-Null; [Utils.Win32]::ShowWindowAsync($_, 0) | Out-Null }"
-        )
-rem (..to there)
+			rem (If you wish, you can delete from here..)
+			rem --- This code will minimise the Steam window to the system tray when opened (If you wish, you can delete this)
+			timeout /t 10 /nobreak  >nul 2>&1
+			tasklist /FI "IMAGENAME eq steamwebhelper" 2>NUL | find /I /N "steamwebhelper">NUL
+			if "%ERRORLEVEL%"=="0" (
+				powershell -command "(Get-Process -Name 'steamwebhelper').MainWindowHandle | ForEach-Object { Add-Type -MemberDefinition '[DllImport(\"user32.dll\")] public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);' -Name Win32 -Namespace Utils -PassThru | Out-Null; [Utils.Win32]::ShowWindowAsync($_, 0) | Out-Null }"
+			)
+			rem (..to there)
 
-		rem -!- Optional: Start a game after switching account -!-
-		rem start "Game" "C:\Program Files (x86)\Steam\steamapps\common\Game.exe"
 		exit
 		)
 	)
