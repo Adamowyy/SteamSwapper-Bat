@@ -45,15 +45,6 @@ for /f "tokens=3" %%i in ('reg query "HKCU\Software\Valve\Steam" /v AutoLoginUse
 		timeout /t 3 /nobreak  >nul 2>&1
 		start steam://open/main
 
-		rem 1. (If you wish, you can delete from here..)
-		rem --- This code will minimise the Steam window to the system tray when opened (If you wish, you can delete this)
-		timeout /t 10 /nobreak  >nul 2>&1
-		tasklist /FI "WINDOWTITLE eq Steam" 2>NUL | find /I "Steam" >NUL
-		if "!ERRORLEVEL!"=="0" (
-			taskkill /FI "WINDOWTITLE eq Steam"
-		)
-		rem 1. (..to there)
-
 		rem --- Optional: Start a game after switching account (REMOVE "REM" from "START" below) ---
 		rem start "Game" "C:\Program Files (x86)\Steam\steamapps\common\Game.exe"
 
