@@ -6,23 +6,23 @@ TITLE SteamSwapper
 rem --- First we will check your logged in account.. ---
 for /f "tokens=3" %%i in ('reg query "HKCU\Software\Valve\Steam" /v AutoLoginUser 2^>nul ^| find "REG_SZ"') do (
 	color 0E
-    echo -----
-    echo You are already logged in as "%%i"!
-    echo -----
-    echo Choose your account:
+	echo -----
+	echo You are already logged in as "%%i"!
+	echo -----
+	echo Choose your account:
 
 	rem -!- NAME OF YOUR ACCOUNTS DISPLAYED IN THE WINDOW (put here whatever you want) -!-
-    echo 1. "YourAccount1"
-    echo 2. "YourAccount2"
+	echo 1. "YourAccount1"
+	echo 2. "YourAccount2"
 	rem echo 3. "PutYour3rdUsername"
 	rem echo 4. "PutYour4thUsername"
 
-    echo -----
-    set /P "Select=Enter the number: "
+	echo -----
+	set /P "Select=Enter the number: "
 
- 	rem -!- PUT YOUR STEAM USERNAME BELOW -!- 
-    if "!Select!"=="1" ( set "login=YourUsername1" )
-    if "!Select!"=="2" ( set "login=YourUsername2" )
+	rem -!- PUT YOUR STEAM USERNAME BELOW -!- 
+	if "!Select!"=="1" ( set "login=YourUsername1" )
+	if "!Select!"=="2" ( set "login=YourUsername2" )
 	rem if "!Select!"=="3" ( set "login=PutYour3rdUsername ")
 	rem if "!Select!"=="4" ( set "login=PutYour4thUsername ")
 
@@ -47,10 +47,10 @@ for /f "tokens=3" %%i in ('reg query "HKCU\Software\Valve\Steam" /v AutoLoginUse
 		) else (
 			powershell -window minimized -command ""
 			rem --- Check if the Steam process is running and kill it ---
-    		tasklist /FI "IMAGENAME eq steam.exe" 2>NUL | find /I "steam.exe">NUL
-    		if "!ERRORLEVEL!"=="0" (
-        		taskkill.exe /F /IM steam.exe
-    		)
+			tasklist /FI "IMAGENAME eq steam.exe" 2>NUL | find /I "steam.exe">NUL
+			if "!ERRORLEVEL!"=="0" (
+				taskkill.exe /F /IM steam.exe
+			)
 
 			rem --- Set the username in AutoLogin so that Steam recognises your saved account and open steam ---
 			reg add "HKCU\Software\Valve\Steam" /v AutoLoginUser /t REG_SZ /d !login! /f
@@ -60,16 +60,7 @@ for /f "tokens=3" %%i in ('reg query "HKCU\Software\Valve\Steam" /v AutoLoginUse
 			timeout /t 3 /nobreak  >nul 2>&1
 			start steam://open/main
 
-			rem (If you wish, you can delete from here..)
-			rem --- This code will minimise the Steam window to the system tray when opened (If you wish, you can delete this)
-			timeout /t 10 /nobreak  >nul 2>&1
-			tasklist /FI "WINDOWTITLE eq Steam" 2>NUL | find /I "Steam" >NUL
-			if "!ERRORLEVEL!"=="0" (
-    			taskkill /FI "WINDOWTITLE eq Steam"
-			)
-			rem 1. (..to there)
-
-		exit
+			exit
 		)
 	)
 	echo Script launch failed.
